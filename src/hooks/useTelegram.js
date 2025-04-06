@@ -1,6 +1,5 @@
-const tg = window.Telegram.WebApp;
-
 export default function useTelegram() {
+  const tg = window.Telegram.WebApp;
   const onClose = () => tg.close();
 
   const onTooglButton = () => {

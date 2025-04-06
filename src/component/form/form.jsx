@@ -19,9 +19,11 @@ export default function Form() {
   }, []);
 
   useEffect(() => {
-    if (!country || !subject) {
+    if (!country || !street) {
+      console.log(country, "скрыто");
       tg.MainButton.hide();
     } else {
+      console.log("показано");
       tg.MainButton.show();
     }
   }, [country, street]);
@@ -46,7 +48,7 @@ export default function Form() {
         name={"street"}
         onChange={handleChange}
       />
-      <label for={"subject"} className={styles.label}>
+      <label htmlFor={"subject"} className={styles.label}>
         Введите форму часной собственности
       </label>
       <select
