@@ -21,7 +21,7 @@ export default function Form() {
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     return () => tg.offEvent("mainButtonClicked", onSendData);
-  }, [onSendData]);
+  }, [onSendData]); //Указать в зависимостях onSendData для передачи актуальных данных
 
   useEffect(() => {
     tg.MainButton.setParams({
