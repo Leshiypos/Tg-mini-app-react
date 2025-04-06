@@ -6,7 +6,7 @@ export default function ProductList() {
   return (
     <div>
       Product List
-      <button onChange={onTooglButton}>Переключить кнопку</button>
+      <button onClick={onTooglButton}>Переключить кнопку</button>
     </div>
   );
 }
