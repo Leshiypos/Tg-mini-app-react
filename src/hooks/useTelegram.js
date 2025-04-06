@@ -4,11 +4,7 @@ export default function useTelegram() {
   const onClose = () => tg.close();
 
   const onTooglButton = () => {
-    if (tg.MainButton.isVisible) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
-    }
+    tg.MainButton.isVisible ? tg.MainButton.hide() : tg.MainButton.show();
   };
   return {
     tg,
