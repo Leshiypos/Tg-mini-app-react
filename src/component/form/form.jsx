@@ -16,8 +16,8 @@ export default function Form() {
 
   const onSendData = () => tg.sendData(JSON.stringify(values));
   useEffect(() => {
-    tg.WebApp.onEvent("backButtonClicked", onSendData);
-    return () => tg.WebApp.offEvent("backButtonClicked", onSendData);
+    tg.onEvent("backButtonClicked", onSendData);
+    return () => tg.offEvent("backButtonClicked", onSendData);
   }, []);
 
   useEffect(() => {
