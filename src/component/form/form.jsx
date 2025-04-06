@@ -13,7 +13,7 @@ export default function Form() {
   const country = values.country;
   const street = values.street;
   const subject = values.subject;
-
+  console.log(values);
   const onSendData = useCallback(
     () => tg.sendData(JSON.stringify(values)),
     [values]
@@ -21,7 +21,7 @@ export default function Form() {
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     return () => tg.offEvent("mainButtonClicked", onSendData);
-  }, []);
+  }, [onSendData]);
 
   useEffect(() => {
     tg.MainButton.setParams({
@@ -31,10 +31,8 @@ export default function Form() {
 
   useEffect(() => {
     if (!country || !street) {
-      console.log(country, "скрыто");
       tg.MainButton.hide();
     } else {
-      console.log("показано");
       tg.MainButton.show();
     }
   }, [country, street]);
