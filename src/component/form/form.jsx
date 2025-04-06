@@ -14,8 +14,16 @@ export default function Form() {
   const street = values.street;
   const subject = values.subject;
 
+  const onSendData = () => tg.sendData(JSON.stringify(values));
   useEffect(() => {
-    tg.MainButton.setParams("Отправить");
+    tg.WebApp.onEvent("backButtonClicked", onSendData);
+    return () => tg.WebApp.offEvent("backButtonClicked", onSendData);
+  }, []);
+
+  useEffect(() => {
+    tg.MainButton.setParams({
+      text: "Отрпавить",
+    });
   }, []);
 
   useEffect(() => {
