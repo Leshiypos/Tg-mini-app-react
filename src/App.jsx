@@ -16,8 +16,8 @@ function App() {
     <div className={styles.App}>
       <Header />
       <Routes>
-        <Route path={"/"} element={<ProductList />} />
-        <Route path={"/form"} element={<Form />} />
+        <Route index element={<ProductList />} />
+        <Route path={"form"} element={<Form />} />
       </Routes>
     </div>
   );
