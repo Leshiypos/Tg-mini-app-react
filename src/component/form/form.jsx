@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import useTelegram from "../../hooks/useTelegram";
 import styles from "./form.module.css";
@@ -14,15 +14,18 @@ export default function Form() {
   const street = values.street;
   const subject = values.subject;
 
-  const onSendData = () => tg.sendData(JSON.stringify(values));
+  const onSendData = useCallback(
+    () => tg.sendData(JSON.stringify(values)),
+    [values]
+  );
   useEffect(() => {
-    tg.onEvent("backButtonClicked", onSendData);
-    return () => tg.offEvent("backButtonClicked", onSendData);
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => tg.offEvent("mainButtonClicked", onSendData);
   }, []);
 
   useEffect(() => {
     tg.MainButton.setParams({
-      text: "Отрпавить",
+      text: "Отправить",
     });
   }, []);
 
