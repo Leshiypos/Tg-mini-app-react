@@ -16,7 +16,7 @@ export default function ProductItem({ product, className, onAdd }) {
           Стоимость: <b>{product.price}</b>
         </span>
         <Button className={styles.add_btn} onClick={onAddHandler}>
-          Добваить в корзину
+          Добавить в корзину
         </Button>
       </div>
     </div>
